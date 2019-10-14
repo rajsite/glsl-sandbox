@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>glsl-sandbox test page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='glsl-sandbox.js' type="module"></script>
+</head>
+<body>
+    <glsl-sandbox>
+        <template>
+            #ifdef GL_ES
+            precision mediump float;
+            #endif
+        
+            uniform float u_time;
+        
+            uniform vec2 u_resolution;
+        
+            #define speed 0.5
+            #define freq 1.8
+            #define amp 0.1
+            #define phase 2.9
+        
+            void main( void ) {
+                vec2 p = ( gl_FragCoord.xy / u_resolution.xy ) - 0.3;
+                float sx = (amp)*1.9 * sin( 4.0 * (freq) * (p.x-phase) - 6.0 * (speed)*u_time)*sqrt((p.x+0.3)*u_time*0.6);
+                float dy = 43./ ( 60. * abs(4.9*p.y - sx - 1.));
+                gl_FragColor = vec4( (p.x + 0.05) * dy, 0.2 * dy, dy, 2.0 );
+            }
+        </template>
+    </glsl-sandbox>
+</body>
+</html>
