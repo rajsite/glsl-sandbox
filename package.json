@@ -1,0 +1,18 @@
+{
+  "name": "glsl-sandbox",
+  "version": "0.0.1",
+  "description": "A custom element to embed glslsandbox and shadertoy visuals",
+  "main": "glsl-sandbox.js",
+  "scripts": {
+    "build": "rollup -c ./rollup.config.js"
+  },
+  "author": "Milan Raj (@rajsite)",
+  "license": "MIT",
+  "devDependencies": {
+    "glslCanvas": "^0.1.7",
+    "rollup": "^1.23.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {}
+}
